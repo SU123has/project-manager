@@ -38,7 +38,10 @@ export default function NewProject() {
   return (
     <>
       <Modal ref={modalRef} buttonCaption="Close">
-        <h2 className="text-2xl font-bold text-stone-800 my-4 uppercase">
+        <h2
+          className="text-2xl font-bold text-stone-800 my-4 uppercase"
+          id="modal-title"
+        >
           Invalid input
         </h2>
         <p className="text-stone-900 mb-4 font-semibold">
@@ -48,7 +51,7 @@ export default function NewProject() {
           Please make sure you provide a valid value for each field
         </p>
       </Modal>
-      <div className="mt-16 w-[35rem]">
+      <section className="mt-16 w-[35rem]">
         <menu className="flex items-center gap-4 justify-end my-4">
           <li>
             <button
@@ -73,7 +76,7 @@ export default function NewProject() {
           <Input label="Description" isTextArea ref={description} />
           <Input label="Due Date" type="date" ref={dueDate} />
         </div>
-      </div>
+      </section>
     </>
   );
 }

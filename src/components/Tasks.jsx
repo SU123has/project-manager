@@ -36,8 +36,13 @@ export default function Tasks() {
           Please make sure you provide a valid value.
         </p>
       </Modal>
-      <section>
-        <h2 className="text-2xl font-bold text-stone-700 mb-4">Tasks</h2>
+      <section aria-labelledby="tasks-heading">
+        <h2
+          id="tasks-heading"
+          className="text-2xl font-bold text-stone-700 mb-4"
+        >
+          Tasks
+        </h2>
         <div className="flex gap-4 mb-4">
           <input
             type="text"
@@ -49,8 +54,9 @@ export default function Tasks() {
           <button
             className="px-2 py-1 bg-orange-300 rounded-md hover:bg-orange-400 text-stone-900 hover:text-slate-50 transition-all"
             onClick={handleAddNewTask}
+            aria-label="Add new task"
           >
-            Add{" "}
+            Add
           </button>
         </div>
 
@@ -61,7 +67,7 @@ export default function Tasks() {
         )}
 
         {projectsState.tasks.length > 0 && (
-          <ul className="flex flex-col gap-1">
+          <ul className="flex flex-col gap-1" aria-live="polite">
             {projectsState.tasks.map((task) => (
               <li
                 key={task.taskId}
@@ -73,6 +79,7 @@ export default function Tasks() {
                 <button
                   className="text-xl font-semibold text-red-500 transition opacity-0 hover:text-2xl group-hover:opacity-100"
                   onClick={() => handleDeleteTask(task.taskId)}
+                  aria-label={`Delete task ${task.task}`}
                 >
                   x
                 </button>

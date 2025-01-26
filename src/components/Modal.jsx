@@ -20,14 +20,19 @@ export default function Modal({
     <dialog
       ref={dialog}
       className="relative p-8 rounded-lg bg-orange-200 border-orange-700 backdrop:bg-black/90 shadow-md"
+      aria-labelledby="modal-title"
+      aria-modal="true"
     >
-      <span
+      <button
+        type="button"
         className="absolute top-[7px] right-[20px] text-2xl font-semibold hover:cursor-pointer"
         onClick={() => dialog.current.close()}
+        aria-label="Close"
       >
         X
-      </span>
-      {children}
+      </button>
+      <div role="document">{children}</div>
+
       <form method="dialog" className="text-right">
         <button
           className=" bg-stone-700 py-1 px-4 rounded-lg text-slate-50 hover:bg-stone-800 transition text-lg"

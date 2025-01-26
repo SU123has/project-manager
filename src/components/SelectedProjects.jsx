@@ -28,7 +28,7 @@ export default function SelectedProjects({ project }) {
           Are you sure you want to delete this project?
         </h2>
       </Modal>
-      <div className="w-[35rem] mt-16">
+      <article className="w-[35rem] mt-16">
         <header className="pb-4 mb-4  border-b-2 border-orange-400">
           <div className="flex items-center">
             <h1 className="flex-1 text-3xl font-bold text-stone-600 uppercase">
@@ -41,13 +41,15 @@ export default function SelectedProjects({ project }) {
               Delete
             </button>
           </div>
-          <p className="mb-4 text-stone-400 italic">{formattedDate}</p>
+          <time className="mb-4 text-stone-400 italic">{formattedDate}</time>
           <p className="text-stone-600 whitespace-pre-wrap bg-orange-200 p-4 rounded-lg">
             {project.description}
           </p>
         </header>
-        <Tasks />
-      </div>
+        <section>
+          <Tasks />
+        </section>
+      </article>
     </>
   );
 }

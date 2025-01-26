@@ -5,7 +5,7 @@ import { ProjectContext } from "../context/projects-context";
 export default function NoProjectSelected() {
   const { handleStartAddProject } = useContext(ProjectContext);
   return (
-    <div className="mt-24 text-center w-2/3">
+    <section className="mt-24 text-center w-2/3">
       <img
         src={NoProjectImg}
         alt="empty-task-list"
@@ -20,9 +20,10 @@ export default function NoProjectSelected() {
       <button
         className="py-2 px-4 text-lg bg-orange-400 hover:bg-orange-600 text-slate-200 hover:text-slate-50 rounded-xl transition"
         onClick={handleStartAddProject}
+        aria-label="Create a new Project"
       >
         Create new project
       </button>
-    </div>
+    </section>
   );
 }
