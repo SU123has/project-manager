@@ -5,6 +5,10 @@ import { ProjectContext } from "../context/projects-context";
 export default function Tasks() {
   const { handleAddTask, handleDeleteTask, projectsState } =
     useContext(ProjectContext);
+  const currentlySelectedProject = projectsState.selectedProjectId;
+  const currentlySelectedProjectTasks = projectsState.tasks?.filter(
+    (task) => task.projectId === currentlySelectedProject
+  );
   const modalRef = useRef(null);
   const [newTask, setNewTask] = useState("");
   const handleAddNewTask = () => {
@@ -60,15 +64,15 @@ export default function Tasks() {
           </button>
         </div>
 
-        {projectsState.tasks.length === 0 && (
+        {currentlySelectedProjectTasks?.length === 0 && (
           <p className="text-stone-400 mb-4">
             This project does not have any tasks yet!
           </p>
         )}
 
-        {projectsState.tasks.length > 0 && (
+        {currentlySelectedProjectTasks?.length > 0 && (
           <ul className="flex flex-col gap-1" aria-live="polite">
-            {projectsState.tasks.map((task) => (
+            {currentlySelectedProjectTasks.map((task) => (
               <li
                 key={task.taskId}
                 className="w-full flex gap-2 group items-center"

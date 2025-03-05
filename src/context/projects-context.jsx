@@ -24,7 +24,7 @@ export default function ProjectContextProvider({ children }) {
   const [projectsState, setProjectsState] = useState({
     selectedProjectId: undefined, //valid ID when projected is selected, null when we want to add a new project, undefined when we are not adding any project and also didnt select any project, initially should be in undefined state, as we have not selected any project
     projects: [], //to hold all the projects
-    tasks: [], //to hold all the tasks associated with a project
+    tasks: [], //to hold all the tasks associated with projects
   });
 
   const handleAddTask = (task) => {
